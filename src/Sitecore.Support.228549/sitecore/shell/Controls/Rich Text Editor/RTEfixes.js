@@ -58,6 +58,24 @@ function OnClientModeChange(editor) {
     }
 }
 
+// Fix 228549
+function OnClientCommandExecuting(editor, args) {
+    //The command name   
+    var commandName = args.get_commandName();
+    //The tool that initiated the command   
+    if (commandName == "FormatBlock") {
+        //editor.get_document().execCommand("FormatBlock", false, "div");
+        var selectedElement = editor.getSelectedElement();
+        if (selectedElement.getAttribute("style")) {
+            selectedElement.removeAttribute("style");
+        }
+        else if (selectedElement.getAttribute("class")) {
+            selectedElement.removeAttribute("class");
+        }
+    }
+}
+// end fix 228549
+
 function OnClientCommandExecuted(sender, args) {
     if (args.get_commandName() == "SetImageProperties") {
         replaceClearImgeDimensionsFunction();

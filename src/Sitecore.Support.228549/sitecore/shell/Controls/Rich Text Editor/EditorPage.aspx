@@ -182,7 +182,8 @@
                                    OnClientSelectionChange="OnClientSelectionChange"
                                    OnClientInit="OnClientInit"
                                    OnClientModeChange="OnClientModeChange"
-                                   OnClientPasteHtml="OnClientPasteHtml" />
+                                   OnClientPasteHtml="OnClientPasteHtml"
+                                   OnClientCommandExecuting="OnClientCommandExecuting" />
 
             </ContentTemplate>
           </asp:UpdatePanel>
